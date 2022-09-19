@@ -1,0 +1,51 @@
+@import "styles/variables";
+
+.search {
+  position: relative;
+
+  &__input {
+    background: $pink-gradient;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 17px;
+    padding-left: 60px;
+    color: black;
+    outline-color: $outline-pink;
+    width: 311px;
+    font-size: 12px;
+    font-weight: 400;
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      height: 7px;
+      width: 7px;
+      cursor: pointer;
+      background: url("./Cross.svg") center / contain no-repeat;
+    }
+
+    &_disabled {
+        opacity: 0.6;
+    }
+  }
+
+  &__submit {
+    position: absolute;
+    height: 16px;
+    width: 17px;
+    top: 10px;
+    left: 30px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__icon:before {
+    content: "";
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    height: 16px;
+    width: 17px;
+    background: url("./SearchIcon.svg") center / contain no-repeat;
+  }
+}

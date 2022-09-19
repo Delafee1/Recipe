@@ -1,0 +1,33 @@
+@import "styles/variables";
+
+.loader {
+    background: center / contain no-repeat url('./Loader.svg');
+    position: absolute;
+    transform: rotate(0.5turn);
+    animation-name: rotation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    &_size_s {
+        @include square(20px);
+    }
+
+    &_size_m {
+        @include square(40px);
+    }
+
+    &_size_l {
+        @include square(60px);
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

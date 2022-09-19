@@ -1,0 +1,53 @@
+@import "styles/variables";
+
+.multidropdown {
+    position: relative;
+
+    &__title {
+        background: $pink-gradient;
+        width: 176px;
+        height: 36px;
+        border-radius: 7px;
+        padding: 4px 19px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 28px;
+        color: black;
+        margin-bottom: 4px;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &_disabled {
+            opacity: 0.5;
+        }
+    }
+
+    &__categories {
+        width: 176px;
+        border-radius: 7px;
+        position: absolute;
+        top: 40px;
+        z-index: 2;
+        height: 176px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    &__category {
+        background-color: $light-pink;
+        width: 176px;
+        height: 36px;
+        padding: 4px 19px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 28px;
+        color: black;
+        cursor: pointer;
+
+        &_checked {
+            background-color: $dark-pink;
+        }
+    }
+}

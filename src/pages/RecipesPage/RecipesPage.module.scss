@@ -1,0 +1,119 @@
+@import "styles/variables";
+
+.recipes {
+  @extend %margin-center;
+  width: 992px;
+  padding: 24px;
+  min-height: 100vh;
+  background: top right no-repeat white url("styles/Background.png");
+
+  &__heading {
+    @extend %margin-center;
+    width: 586px;
+    display: grid;
+    grid-template-areas: 
+      "search dropdown checkbox"
+      "results results results";
+    gap: 15px;
+    align-items: baseline;
+    margin-bottom: 15px;
+
+    &__search {
+      grid-area: search;
+    }
+
+    &__checkbox {
+      grid-area: checkbox;
+      
+    }
+
+    &__multidropdown {
+      grid-area: dropdown;
+      display: flex;
+    }
+
+    &__results {
+      grid-area: results;
+      display: flex;
+      margin-left: auto;
+      color: $black;
+      font-size: 12px;
+    } 
+  }
+
+  &__error {
+    display: flex;
+    color: $black;
+    font-size: 12px;
+    justify-content: center;
+  }
+
+  &__cards {
+    @extend %margin-center;
+    width: 630px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+    position: relative;
+
+    &_loading {
+      opacity: 0.5;
+    }
+  }
+}
+
+.loader {
+  @extend %margin-center;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .recipes {    
+    width: 768px;
+  }
+}
+
+@media (max-width: 576px) {
+  .recipes {
+    width: 576px;
+
+    &__heading {
+      width: 311px;
+      grid-template-areas: 
+        "search search"
+        "checkbox dropdown"
+        "results results";
+      
+      &__multidropdown {
+        margin-left: auto;
+      }
+
+      &__checkbox {
+        margin-left: 40px;
+      }
+    }
+
+    &__cards {
+      width: 400px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .recipes {
+    width: 375px;
+    padding: 12px;
+
+    &__cards {
+      width: 100%;
+      gap: 15px;
+    }
+  }
+}

@@ -1,0 +1,268 @@
+@import "styles/variables";
+
+.recipepage {
+  width: 992px;
+  padding: 24px;
+  min-height: 100vh;
+  background-color: white;
+  margin: auto;
+}
+
+.recipe {
+  display: grid;
+  grid-template-areas: 
+    "image content"
+    "image content"
+    "image content"
+    "information content";
+  gap: 20px;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+
+  &__imagecontainer {
+    grid-area: image;
+    position: relative;
+    height: 370px;
+    width: 375px;
+    overflow: hidden;
+
+    &__image {
+      position: absolute;
+      height: 410px;
+      left: -140px;
+      top: -23px; 
+    }
+  }
+  
+  &__back {
+    position: absolute;
+    top: 38px;
+    left: 19px;
+    @include square(45px);
+    background-color: rgba(255, 0, 0, 0.1);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 0;
+
+    &__arrow {
+      display: flex;
+      background: center / contain no-repeat url('./Arrow.svg');
+      width: 8px;
+      height: 16px;
+      margin: auto;
+    }
+
+    &:hover {
+      background-color: rgba(255, 0, 0, 0.15);
+    }
+
+    &:active {
+      background-color: rgba(255, 0, 0, 0.2);
+    }
+  }
+
+  &__content {
+    grid-area: content;
+    background-color: white;
+  }
+
+  &__line {
+    display: none;
+    @extend %margin-center;
+    background: center / contain no-repeat url('./Line.svg');
+    width: 58px;
+    height: 6px;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    grid-area: title;
+    color: $black;
+    margin: 0px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 35px;  
+  }
+
+  &__heading {
+    color: $outline-pink;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-style: italic;
+    text-align: center;
+  }
+
+  &__ingredients {
+    grid-area: ingredients;
+    
+    &__list {
+      width: 554px;
+    }
+  }
+
+  &__method {
+    grid-area: method;
+  }
+
+  &__numbers {
+    grid-area: numbers;
+    display: flex;
+    margin-bottom: 16px;
+    color: rgba(59, 59, 59, 0.3);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+
+    &__minutes {
+      display: flex;
+      align-items: center;
+
+      &__icon {
+        background: center / contain no-repeat url('./Time.svg');
+        width: 16px;
+        height: 15px;
+        fill: #FF9F06;
+        margin-right: 15px;
+      }
+
+      &__text {
+        margin: 0;
+        margin-right: 45px;
+      }
+    }
+
+    &__likes {
+      display: flex;
+      align-items: center;
+
+      &__icon {
+        background: center / contain no-repeat url('./Heart.svg');
+        width: 16px;
+        height: 15px;
+        margin-right: 15px;
+      }
+
+      &__text {
+        margin: 0;
+      }
+    }
+  }
+
+  &__text {
+    color: #09051C;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 21px;
+  }
+
+  &__information {
+    grid-area: information;
+    color: #09051C;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 21px;
+  }
+}
+
+.loader {
+  @extend %margin-center;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .recipepage {    
+    width: 768px;
+  }
+
+  .recipe {
+    grid-template-areas: 
+    "image"
+    "content "
+    "information";
+
+    &__imagecontainer {
+      justify-self: center;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__numbers {
+      justify-content: center;
+    }
+
+    &__ingredients__list {
+      width: 718px;
+    }
+  } 
+}
+
+@media (max-width: 576px) {
+  .recipepage {
+    width: 576px;
+    padding: 0px;
+  }
+
+  .recipe {
+    &__content {
+      padding: 18px 34px 34px 34px;
+      border-radius: 7px 7px 0px 0px;
+    }
+
+    &__line {
+      display: flex;
+    }
+
+    &__ingredients__list {
+      width: 500px;
+    }
+
+    &__information {
+      width: 500px;
+      justify-self: center;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .recipepage {
+    width: 375px;
+  }
+
+  .recipe {
+    gap: 0px;
+
+    &__back {
+      z-index: 2;
+    }
+
+    &__imagecontainer {
+      position: absolute;
+      z-index: 1;
+    }
+
+    &__content {
+      padding: 18px 34px 34px 34px;
+      border-radius: 7px 7px 0px 0px;
+      z-index: 2;
+      margin-top: 363px;
+    }
+
+    &__ingredients__list {
+      width: 300px;
+    }
+
+    &__information {
+      width: 300px;
+      justify-self: center;
+    }
+  }
+}
